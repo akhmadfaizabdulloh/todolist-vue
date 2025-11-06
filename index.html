@@ -9,11 +9,11 @@
 
 <!-- untuk cek garis/penggaris manual-->
 <!-- penggunaan <div class="container bordered"> -->
-<style>
+<!-- <style>
     .bordered {
         border: solid 1px;
     }
-</style>
+</style> -->
 
 <body>
 
@@ -21,25 +21,36 @@
         <!-- untuk cek garis <div class="container bordered"> -->
         <div class="container bordered">
             <h1 class="mt-5 text-center">To Do List App</h1>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-9 mt-5 bordered">
-                <div class="row">
-                    <div class="col-2">
-                        <input type="text" class="form-control" placeholder="start time">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" class="form-control" placeholder="end time">
-                    </div>
-                    <div class="col-6">
-                        <input type="text" class="form-control" placeholder="new activity">
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-primary form-control">Add</button>
+            <div class="row justify-content-center">
+                <div class="col-9 mt-5 bordered">
+                    <div class="row">
+                        <div class="col-2">
+                            <input type="text" class="form-control" placeholder="start time">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control" placeholder="end time">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="form-control" placeholder="new activity">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary form-control">Add</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row justify-content-center">
+                <div class="col-7 mt-5 bordered">
+                    <div v-for="(item, index) in todoList" class="p-3" style="border-bottom: solid 1px #ddd;">
+                        <button class="btn btn-outline-danger me-3">delete</button>
+                        <button class="btn btn-success me-3">done</button>
+                        {{ item.start }} - {{ item.end }} : {{ item.text }}
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
