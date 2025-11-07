@@ -25,17 +25,17 @@
             <div class="row justify-content-center">
                 <div class="col-9 mt-5 bordered">
                     <div class="row">
-                        <div class="col-2">
-                            <input type="text" class="form-control" placeholder="start time">
-                        </div>
-                        <div class="col-2">
-                            <input type="text" class="form-control" placeholder="end time">
-                        </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="new activity">
+                            <input type="text" class="form-control" placeholder="new activity" v-model="activity">
                         </div>
                         <div class="col-2">
-                            <button class="btn btn-primary form-control">Add</button>
+                            <input type="text" class="form-control" placeholder="start time" v-model="startTime">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control" placeholder="end time" v-model="endTime">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary form-control" @click="addTodo">Add</button>
                         </div>
                     </div>
                 </div>
@@ -80,9 +80,26 @@
                 {text: 'belajar html', start: '07:00', end: '08:00', done: false},
                 {text: 'belajar css', start: '08:00', end: '09:00', done: false},
                 {text: 'belajar javascript', start: '09:00', end: '10:00', done: false},
-              ]
+              ],
+
+              StartTime: '',
+              endTime: '',
+              activity: ''
             }
-          }
+          },
+          methods: {
+            addTodo(){
+                // alert('whatever')
+                let newItem =  {
+                    text: this.activity,
+                    start: this.startTime,
+                    end: this.endTime,
+                    done: false
+                }
+
+                this.todoList.push(newItem)
+            }
+          },
         }).mount('#app')
     </script>
 </body>
